@@ -588,7 +588,9 @@ __proto__<span class="token punctuation">:</span>Object<span class="token punctu
 <p>如果就是函数式声明组件，就把它当做普通方法执行(方法中的this是undefined)，把函数返回的JSX元素(也是解析后的对象)进行渲染</p>
 <p>如果是类声明式组件，会把当前类new它执行，创建类的一个实例(当前本次调取的组件就是它的实例)，执行contructor之后，会执行this.render(),把render返回的JSX拿过来渲染，所以<strong><code>类声明式组件</code></strong>，必须有一个render的方法，方法中<strong><code>需要返回一个JSX元素</code></strong></p>
 <p>但是不管是哪一种方式，最后都会把解析出来的props属性对象作为实参传递给对应的函数或者类</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h3><p>创建组件有两种方式，<code>函数式</code>和<code>创建类式</code></p>
+<blockquote>
+<p>总结<br>创建组件有两种方式，<code>函数式</code>和<code>创建类式</code></p>
+</blockquote>
 <p> [函数式]</p>
 <ul>
 <li>1.操作很简单</li>
