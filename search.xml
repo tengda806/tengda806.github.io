@@ -5,6 +5,19 @@
     
     <entry>
       <title>first blog</title>
+      <link href="/2018/09/07/hello/"/>
+      <url>/2018/09/07/hello/</url>
+      
+        <content type="html"><![CDATA[<p>hello</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>first blog</title>
       <link href="/2018/09/07/first/"/>
       <url>/2018/09/07/first/</url>
       
