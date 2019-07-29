@@ -4,8 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="标签, jiatengda">
-    <meta name="description" content="标签 | jiatengda">
+    <meta name="keywords" content="分类: ES6, jiatengda">
+    <meta name="description" content="分类: ES6 | jiatengda">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>标签 | jiatengda</title>
+    <title>分类: ES6 | jiatengda</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -205,49 +205,33 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
     
 
-<div id="tags" class="container chip-container">
+<div id="category-cloud" class="container chip-container">
     <div class="card">
         <div class="card-content">
             <div class="tag-title center-align">
-                <i class="fa fa-tags"></i>&nbsp;&nbsp;文章标签
+                <i class="fa fa-bookmark"></i>&nbsp;&nbsp;文章分类
             </div>
             <div class="tag-chips">
                 
                 
-                <a href="/tags/ES6/" title="ES6: 1">
+                
+                <a href="/categories/ES6/" title="ES6: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="ES6" style="background-color: #F9EBEA;">ES6
+                             chip-active "
+                            style="background-color: #F9EBEA;">ES6
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/前端/" title="前端: 1">
+                <a href="/categories/Vue/" title="Vue: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="前端" style="background-color: #F5EEF8;">前端
+                            style="background-color: #F5EEF8;">Vue
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
-                
-                <a href="/tags/数组/" title="数组: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="数组" style="background-color: #D5F5E3;">数组
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Vue/" title="Vue: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Vue" style="background-color: #E8F8F5;">Vue
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
                 
             </div>
         </div>
@@ -255,31 +239,71 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 </div>
 
     
-    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
-<style type="text/css">
-    #tag-wordcloud {
-        width: 100%;
-        height: 300px;
-    }
-</style>
 
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="tag-wordcloud" class="card-content"></div>
-    </div>
-</div>
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2018/03/07/es6/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="vue学习总结">
+                            
+                            <span class="card-title">vue学习总结</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                ES6(不常用且好用的)数组对象中新增的方法isArray,isObject : 判断是不是一个数组 / 对象
+数组方法
 
-<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
-<script type="text/javascript">
-    
+map() : 返回一个新的数组，参数接收一个函数  let ary = [1, 2, 3, 4, 5, 6, 7]
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-03-07
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/ES6/" class="post-category" target="_blank">
+                                    ES6
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
-    $('#tag-wordcloud').jQCloud([{"text":"ES6","weight":1,"link":"http://tengda806.github.io/tags/ES6/"},{"text":"前端","weight":1,"link":"http://tengda806.github.io/tags/前端/"},{"text":"数组","weight":1,"link":"http://tengda806.github.io/tags/数组/"},{"text":"Vue","weight":1,"link":"http://tengda806.github.io/tags/Vue/"}], {
-        autoResize: true
-    });
-</script>
-    
-
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/ES6/" target="_blank">
+                            <span class="chip bg-color">ES6</span>
+                        </a>
+                        
+                        <a href="/tags/前端/" target="_blank">
+                            <span class="chip bg-color">前端</span>
+                        </a>
+                        
+                        <a href="/tags/数组/" target="_blank">
+                            <span class="chip bg-color">数组</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </article>
 </main>
+
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
