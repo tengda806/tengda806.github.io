@@ -440,7 +440,7 @@ let vm = new Vue({
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h3 id="事件绑定-事件类型-“xxx”-可以写方法，可以写一些简单的逻辑"><a href="#事件绑定-事件类型-“xxx”-可以写方法，可以写一些简单的逻辑" class="headerlink" title="事件绑定 : @事件类型 = “xxx”(可以写方法，可以写一些简单的逻辑)"></a>事件绑定 : @事件类型 = “xxx”(可以写方法，可以写一些简单的逻辑)</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div onclick<span class="token operator">=</span><span class="token string">"fn(event)"</span><span class="token operator">></span><span class="token number">1111111</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<h3 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div onclick<span class="token operator">=</span><span class="token string">"fn(event)"</span><span class="token operator">></span><span class="token number">1111111</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
 <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>不使用Vue<span class="token punctuation">,</span>event 实参事件对象 window<span class="token punctuation">.</span>event<span class="token operator">--</span><span class="token operator">></span>
 <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
     <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>绑定事件@事件类型<span class="token operator">=</span><span class="token string">"xxx"</span><span class="token operator">--</span><span class="token operator">></span>
@@ -521,7 +521,7 @@ value(字符串):循环value.length次，item是每一次循环的字符
    <div :class="className1"></div>
 
 
-<pre><code>### 自定义指令 : 全局&amp;&amp;局部
+<pre><code>### 自定义指令 
 
 ```javascript
 // 注册一个全局自定义指令 `v-focus`
@@ -653,17 +653,16 @@ data<span class="token punctuation">:</span><span class="token punctuation">{</s
 <li><p>只执行一次，一般操作元素都是在这里面操作</p>
 </li>
 <li><p>为了保证真实性，一般都在外面包一个this.$nextTick()，参数里面传一个函数，里面包着我们写的代码，等到DOM渲染完成后执行，通过这种方法拿到更新后的数据</p>
-<pre class=" language-javascript"><code class="language-javascript"></code></pre>
+<pre class=" language-javascript"><code class="language-javascript">`<span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span> 
+ <span class="token operator">&lt;</span>div ref<span class="token operator">=</span><span class="token string">"box"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>msg<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+ <span class="token operator">&lt;</span>div ref<span class="token operator">=</span><span class="token string">"box1"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>msg<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+ <span class="token operator">&lt;</span>div ref<span class="token operator">=</span><span class="token string">"box2"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>msg<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+ <span class="token operator">&lt;</span>div ref<span class="token operator">=</span><span class="token string">"box"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>msg<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+ <span class="token operator">&lt;</span>p ref<span class="token operator">=</span><span class="token string">"p"</span> v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"item in list"</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>item<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span></code></pre>
 </li>
 </ul>
 </blockquote>
-<div id="app"> 
-    <div ref="box">{{msg}}</div>
-    <div ref="box1">{{msg}}</div>
-    <div ref="box2">{{msg}}</div>
-    <div ref="box">{{msg}}</div>
-    <p ref="p" v-for="item in list">{{item}}</p>
-</div>
+`
 //-----------------js
     let vm = new Vue({
         el:"#app",
@@ -686,7 +685,7 @@ data<span class="token punctuation">:</span><span class="token punctuation">{</s
     })
 ```
 
-<h3 id="全局组件-Vue-component-“组件名”，"><a href="#全局组件-Vue-component-“组件名”，" class="headerlink" title="全局组件 : Vue.component(“组件名”，{})"></a>全局组件 : Vue.component(“组件名”，{})</h3><blockquote>
+<h3 id="全局组件"><a href="#全局组件" class="headerlink" title="全局组件"></a>全局组件</h3><blockquote>
 <ul>
 <li>组件是独立的，独立的生命周期，独立的数据</li>
 <li>组件中的data必须是一个函数，返回一个对象，里面存储着我们想要的data</li>
@@ -710,7 +709,7 @@ data<span class="token punctuation">:</span><span class="token punctuation">{</s
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h3 id="局部组件-局部组件也是独立的，自己的声明周期和数据"><a href="#局部组件-局部组件也是独立的，自己的声明周期和数据" class="headerlink" title="局部组件 : 局部组件也是独立的，自己的声明周期和数据"></a>局部组件 : 局部组件也是独立的，自己的声明周期和数据</h3><blockquote>
+<h3 id="局部组件"><a href="#局部组件" class="headerlink" title="局部组件"></a>局部组件</h3><blockquote>
 <ul>
 <li>三部曲 : 定义组件，注册组件，使用组件</li>
 </ul>
@@ -737,7 +736,7 @@ data<span class="token punctuation">:</span><span class="token punctuation">{</s
     <span class="token operator">&lt;</span>component1<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>component1<span class="token operator">></span>
     <span class="token operator">&lt;</span>component2<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>component2<span class="token operator">></span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span></code></pre>
-<h3 id="组件嵌套使用-所有的组件都是独立的"><a href="#组件嵌套使用-所有的组件都是独立的" class="headerlink" title="组件嵌套使用 : 所有的组件都是独立的"></a>组件嵌套使用 : 所有的组件都是独立的</h3><blockquote>
+<h3 id="组件嵌套使用"><a href="#组件嵌套使用" class="headerlink" title="组件嵌套使用"></a>组件嵌套使用</h3><blockquote>
 <ul>
 <li>组件里面也有components属性，其子组件只需要在里面注册，就可以在父组件模板中使用</li>
 </ul>
@@ -868,7 +867,7 @@ data<span class="token punctuation">:</span><span class="token punctuation">{</s
 </li>
 </ul>
 </blockquote>
-<h3 id="父组件操作子组件-通过ref获取子组件"><a href="#父组件操作子组件-通过ref获取子组件" class="headerlink" title="父组件操作子组件 : 通过ref获取子组件"></a>父组件操作子组件 : 通过ref获取子组件</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
+<h3 id="父组件操作子组件"><a href="#父组件操作子组件" class="headerlink" title="父组件操作子组件"></a>父组件操作子组件</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
     <span class="token operator">&lt;</span>button @click<span class="token operator">=</span><span class="token string">"hide"</span><span class="token operator">></span>point me<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
     <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>给组件加一个ref属性<span class="token operator">--</span><span class="token operator">></span>
     <span class="token operator">&lt;</span>child1 ref<span class="token operator">=</span><span class="token string">"child1"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>child1<span class="token operator">></span>
@@ -889,7 +888,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </div>
 <template id="t1">
     <div>
-        <h1 ref="h1">{{msg}}</h1>
+        <h1 ref="h1" :key="h1">{{msg}}</h1>
     </div>
 </template>
 //-----------js
@@ -924,7 +923,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     });
 ```
 
-<h3 id="component标签-is属性，keep-alive标签"><a href="#component标签-is属性，keep-alive标签" class="headerlink" title="component标签 , is属性，keep-alive标签"></a>component标签 , is属性，keep-alive标签</h3><blockquote>
+<h3 id="component标签"><a href="#component标签" class="headerlink" title="component标签"></a>component标签</h3><blockquote>
 <ul>
 <li>component标签里面只能放一个组件，组件之间切换的时候会销毁之前的组件，重建新的组件，这样很浪费性能</li>
 <li>keep-alive标签里面包住component标签，这样组件不会销毁，只是缓存一下(类似缓存，不是缓存)</li>
@@ -971,12 +970,12 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </blockquote>
 <div id="app">
     <box>
-        <h1>我是标题1</h1>
-        <h2 slot="wg">王干</h2>
-        <h2 slot="zs">张三</h2>
-        <h2 slot="ls">李四</h2>
-        <h2 slot="fw">冯五</h2>
-        <h2 slot="ll">刘六</h2>
+        <span>我是标题1</span>
+        <span slot="wg">王干</span>
+        <span slot="zs">张三</span>
+        <span slot="ls">李四</span>
+        <span slot="fw">冯五</span>
+        <span slot="ll">刘六</span>
     </box>
 </div>
 <!--
@@ -1049,14 +1048,12 @@ let box = {template: "#temp1"};
 </ul>
 </blockquote>
 <div id="app">
-    666666666666666
     <!--router-link:默认将它渲染成了a标签,tag属性可以指定其渲染成什么标签-->
     <!--to="hash值" tag="标签名"-->
     <router-link to="/home" tag="button">home</router-link>
     <router-link to="/list" tag="button">list</router-link>
     <!--router-view: 路由对应的组件显示的位置-->
     <router-view></router-view>
-    666666666666666
 </div>
 ```
 
@@ -1104,47 +1101,15 @@ let box = {template: "#temp1"};
         <button @click="goHome2">go home2</button>
     </div>
 </template>
-//-----------------------js
-let home = {
-        template: "#home",
-        methods:{
-            goList() {
-                this.$router.push("/list");
-                // this.$router.replace("/list");
-            }
-        }
-    };
-    let list = {
-        template: "#list",
-        methods:{
-            goHome() {
-                this.$router.replace("/home");
-            },
-            goHome2() {
-                this.$router.push("/");
-            }
-        }
-    };
-    /*
-     * 组件都有两个属性
-     * $router:放的函数，go/back/forward/push/replace...
-     * $route:放的属性
-     */
-    let router = new VueRouter({
-        routes: [
-            {path: "/", component: home},
-            {path: "/home", component: home},
-            {path: "/list", component: list}
-        ]
-    });
 
+<p>let home = {<br>        template: “#home”,<br>        methods:{<br>            goList() {<br>                this.$router.push(“/list”);<br>                // this.$router.replace(“/list”);<br>            }<br>        }<br>    };<br>    let list = {<br>        template: “#list”,<br>        methods:{<br>            goHome() {<br>                this.$router.replace(“/home”);<br>            },<br>            goHome2() {<br>                this.$router.push(“/“);<br>            }<br>        }<br>    };<br>    /*<br>     * 组件都有两个属性<br>     * $router:放的函数，go/back/forward/push/replace…<br>     * $route:放的属性<br>     */<br>    let router = new VueRouter({<br>        routes: [<br>            {path: “/“, component: home},<br>            {path: “/home”, component: home},<br>            {path: “/list”, component: list}<br>        ]<br>    });</p>
 <pre><code>let vm = new Vue({
     el: &quot;#app&quot;,
     data: {},
     router,
     components: {}
 })</code></pre><pre><code>
-### 路由嵌套 : children
+### 路由嵌套
 
 ```javascript
 &lt;div id=&quot;app&quot;&gt;
@@ -1386,7 +1351,7 @@ let home = {
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/09/07/first/">
+                <a href="/2018/09/07/hello/">
                     <div class="card-image">
                         
                         
@@ -1398,7 +1363,7 @@ let home = {
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            my first blog
+                            hello
 
                         
                     </div>
