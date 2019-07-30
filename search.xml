@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>git常用命令总结</title>
+      <link href="/2018/04/29/git/"/>
+      <url>/2018/04/29/git/</url>
+      
+        <content type="html"><![CDATA[<h3 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h3><ul><li>git config –global user.name “你的名字” 让你全部的Git仓库绑定你的名字</li><li>git config –global user.email “你的邮箱” 让你全部的Git仓库绑定你的邮箱</li><li>git init 初始化你的仓库</li><li>git add . 把工作区的文件全部提交到暂存区</li><li>git add ./<file>/ 把工作区的<file>文件提交到暂存区</file></file></li><li>git commit -m “xxx” 把暂存区的所有文件提交到仓库区，暂存区空空荡荡</li><li>git remote add origin <a href="https://github.com/name/name_cangku.git" target="_blank" rel="noopener">https://github.com/name/name_cangku.git</a> 把本地仓库与远程仓库连接起来</li><li>git push -u origin master 把仓库区的主分支master提交到远程仓库里</li><li>git push -u origin &lt;其他分支&gt; 把其他分支提交到远程仓库</li><li>git status查看当前仓库的状态</li><li>git diff 查看文件修改的具体内容</li><li>git log 显示从最近到最远的提交历史</li><li>git clone + 仓库地址下载克隆文件</li><li>git reset –hard + 版本号 回溯版本，版本号在commit的时候与master跟随在一起</li><li>git reflog 显示命令历史</li><li>git checkout – <file> 撤销命令，用版本库里的文件替换掉工作区的文件。我觉得就像是Git世界的ctrl + z</file></li><li>git rm 删除版本库的文件</li><li>git branch 查看当前所有分支</li><li>git branch &lt;分支名字&gt; 创建分支</li><li>git checkout &lt;分支名字&gt; 切换到分支</li><li>git merge &lt;分支名字&gt; 合并分支</li><li>git branch -d &lt;分支名字&gt; 删除分支,有可能会删除失败，因为Git会保护没有被合并的分支</li><li>git branch -D + &lt;分支名字&gt; 强行删除，丢弃没被合并的分支</li><li>git log –graph 查看分支合并图</li><li>git merge –no-ff &lt;分支名字&gt; 合并分支的时候禁用Fast forward模式,因为这个模式会丢失分支历史信息</li><li>git stash 当有其他任务插进来时，把当前工作现场“存储”起来,以后恢复后继续工作</li><li>git stash list 查看你刚刚“存放”起来的工作去哪里了</li><li>git stash apply 恢复却不删除stash内容</li><li>git stash drop 删除stash内容</li><li>git stash pop 恢复的同时把stash内容也删了</li><li>git remote 查看远程库的信息，会显示origin，远程仓库默认名称为origin</li><li>git remote -v 显示更详细的信息</li><li>git pull 把最新的提交从远程仓库中抓取下来，在本地合并,和git push相反</li><li>git rebase 把分叉的提交历史“整理”成一条直线，看上去更直观</li><li>git tag 查看所有标签，可以知道历史版本的tag</li><li>git tag <name> 打标签，默认为HEAD。比如git tag v1.0</name></li><li>git tag <tagname> &lt;版本号&gt; 把版本号打上标签，版本号就是commit时，跟在旁边的一串字母数字</tagname></li><li>git show <tagname> 查看标签信息</tagname></li><li>git tag -a <tagname> -m “&lt;说明&gt;” 创建带说明的标签。 -a指定标签名，-m指定说明文字</tagname></li><li>git tag -d <tagname> 删除标签</tagname></li><li>git push origin <tagname> 推送某个标签到远程</tagname></li><li>git push origin –tags 一次性推送全部尚未推送到远程的本地标签</li><li>git push origin :refs/tags/<tagname> 删除远程标签<tagname></tagname></tagname></li><li>git config –global color.ui true 让Git显示颜色，会让命令输出看起来更醒目</li><li>git add -f <file> 强制提交已忽略的的文件</file></li><li>git check-ignore -v <file> 检查为什么Git会忽略该文件</file></li></ul><h3 id="常见场景"><a href="#常见场景" class="headerlink" title="常见场景"></a>常见场景</h3><blockquote><p>解决bug</p></blockquote><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 创建bug分支</span>git checkout <span class="token operator">-</span>b bug<span class="token comment" spellcheck="true">// 修改bug后合并并删除bug分支</span>git checkout master git merge bug <span class="token operator">||</span> git rebase bug <span class="token comment" spellcheck="true">// 解决冲突后提交</span><span class="token comment" spellcheck="true">// 如果在自己分支上正在开发 并需要去修复紧急bug ，需要将当前修改放到缓存区</span>git stash <span class="token comment" spellcheck="true">// 等改完并提交后 ， 在恢复之前代码</span>git stash apply <span class="token comment" spellcheck="true">// 保存缓存信息 并恢复代码</span>git stash pop <span class="token comment" spellcheck="true">// 删除缓存信息并恢复代码</span>git stash drop <span class="token comment" spellcheck="true">// 删除缓存信息</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>html中meta的作用</title>
       <link href="/2018/04/17/meta/"/>
       <url>/2018/04/17/meta/</url>
@@ -20,9 +45,9 @@
       
         <tags>
             
-            <tag> meta标签 </tag>
-            
             <tag> 前端 </tag>
+            
+            <tag> meta标签 </tag>
             
         </tags>
       
