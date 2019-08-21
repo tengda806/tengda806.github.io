@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Event Loop</title>
+      <link href="/2018/05/11/eventloop/"/>
+      <url>/2018/05/11/eventloop/</url>
+      
+        <content type="html"><![CDATA[<h3 id="进程、线程、CPU"><a href="#进程、线程、CPU" class="headerlink" title="进程、线程、CPU"></a>进程、线程、CPU</h3><blockquote><ul><li>cpu是计算机的核心，承担计算机所有的计算任务。</li><li>进程代表cpu能处理的单个任务，进程之间相互独立。</li><li>一个进程可以包括多个线程，多个线程共享进程资源。</li></ul></blockquote><h3 id="进程、线程、CPU之间的关系"><a href="#进程、线程、CPU之间的关系" class="headerlink" title="进程、线程、CPU之间的关系"></a>进程、线程、CPU之间的关系</h3><blockquote><ul><li>CPU相当于一个工厂，进程就是工厂里面的不同车间，线程就相当于每个车间里面的工人。</li><li>单线程和多线程，就是指的一个进程内的单和多。</li><li>比如浏览器是多进程的，每一个tab页就是一个独立的子进程。</li></ul></blockquote><h3 id="浏览器渲染进程"><a href="#浏览器渲染进程" class="headerlink" title="浏览器渲染进程"></a>浏览器渲染进程</h3><p>浏览器有很多进程，比如主进程，插件进程，GPU进程等，而跟前端关系最大的就是渲染进程(浏览器内核)。</p><blockquote><p>渲染进程是多线程的</p></blockquote><ul><li>GUI渲染进程:负责渲染页面，布局和绘制。</li><li>js引擎线程:负责处理和解析js脚本程序。</li><li>事件触发线程:用来控制事件(鼠标点击，计时器等)。</li><li>定时器出发进程:用来定时器计时用的。</li><li>http请求线程:单独处理ajax请求的线程。</li></ul><blockquote><p>GUI渲染线程和js引擎线程是互斥的，防止渲染结果不可预期。</p></blockquote><h3 id="JS是单线程的"><a href="#JS是单线程的" class="headerlink" title="JS是单线程的"></a>JS是单线程的</h3><blockquote><ul><li>JS是单线程的，JS是通过事件队列(Event Loop)的方式来实现异步回调的。</li></ul></blockquote><h3 id="event-loop-事件队列"><a href="#event-loop-事件队列" class="headerlink" title="event loop(事件队列)"></a>event loop(事件队列)</h3><blockquote><p>因为js单线程，所以没有真正意义的异步，js的异步是通过事件队列来实现的。</p></blockquote><ul><li>事件触发线程管理一个任务队列，异步任务触发条件达成，将回调事件放到任务队列中</li><li>执行栈中所有同步任务执行完毕，此时JS引擎线程空闲，系统会读取任务队列，将可运行的异步任务回调事件添加到执行栈中，开始执行<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> timerCallback <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'wait one second'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token keyword">let</span> httpCallback <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'get server data success'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre></li></ul><p>// 同步任务<br>console.log(‘hello’);<br>// 同步任务<br>// 通知定时器线程 1s 后将 timerCallback 交由事件触发线程处理<br>// 1s 后事件触发线程将 timerCallback 加入到事件队列中<br>setTimeout(timerCallback,1000);<br>// 同步任务<br>// 通知异步http请求线程发送网络请求，请求成功后将 httpCallback 交由事件触发线程处理<br>// 请求成功后事件触发线程将 httpCallback 加入到事件队列中<br>$.get(‘<a href="http://www.xxxx.com&#39;,httpCallback" target="_blank" rel="noopener">www.xxxx.com&#39;,httpCallback</a>);<br>// 同步任务<br>console.log(‘world’);<br>//…<br>// 所有同步任务执行完后<br>// 询问事件触发线程在事件事件队列中是否有需要执行的回调函数<br>// 如果没有，一直询问，直到有为止<br>// 如果有，将回调事件加入执行栈中，开始执行回调代码</p><pre><code>- JS引擎线程只执行执行栈中的事件- 执行栈中的代码执行完毕，就会读取事件队列中的事件- 事件队列中的回调事件，是由各自线程插入到事件队列中的- 如此循环### 宏任务、微任务&gt; - 我们可以将每次执行栈执行的代码当做是一个宏任务（包括每次从事件队列中获取一个事件回调并放到执行栈中执行）， 每一个宏任务会从头到尾执行完毕，不会执行其他。&gt; - JS引擎线程和GUI渲染线程是互斥的关系，浏览器为了能够使宏任务和DOM任务有序的进行，会在一个宏任务执行结果后，在下一个宏任务执行前，GUI渲染线程开始工作，对页面进行渲染。```javascript// 宏任务--&gt;渲染--&gt;宏任务--&gt;渲染--&gt;渲染．．．</code></pre><blockquote><ul><li>宏任务结束后，会执行渲染，然后执行下一个宏任务， 而微任务可以理解成在当前宏任务执行后立即执行的任务。</li><li>当宏任务执行完，会在渲染前，将执行期间所产生的所有微任务都执行完。<br>例:<pre class=" language-javascript"><code class="language-javascript">document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>style <span class="token operator">=</span> <span class="token string">'background:blue'</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>style <span class="token operator">=</span> <span class="token string">'background:black'</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></li></ul></blockquote><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul><li>执行一个宏任务（栈中没有就从事件队列中获取）</li><li>执行过程中如果遇到微任务，就将它添加到微任务的任务队列中</li><li>宏任务执行完毕后，立即执行当前微任务队列中的所有微任务（依次执行）</li><li>当前宏任务执行完毕，开始检查渲染，然后GUI线程接管渲染</li><li>渲染完毕后，JS线程继续接管，开始下一个宏任务（从事件队列中获取）</li></ul><p><img src="image.jpg" alt></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 事件循环 </tag>
+            
+            <tag> event loop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>001 - 两数之和</title>
       <link href="/2018/05/01/twoSum/"/>
       <url>/2018/05/01/twoSum/</url>
