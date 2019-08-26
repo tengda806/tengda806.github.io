@@ -4,9 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="001 - 两数之和, jiatengda">
-    <meta name="description" content="题目内容给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。示例:
-给定 nums = [">
+    <meta name="keywords" content="vscode常用快捷键总结, jiatengda">
+    <meta name="description" content="编辑Ctrl + X : 剪切选中的内容，如果没有选中内容，剪切光标所在整行内容Ctrl + C : 复制选中的内容，如果没有选中内容，复制光标所在整行内容Alt + 下/上 : 移动行shift + Alt + 上/下 : 复制行Ctrl">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>001 - 两数之和 | jiatengda</title>
+    <title>vscode常用快捷键总结 | jiatengda</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -180,13 +179,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        001 - 两数之和
+                        vscode常用快捷键总结
                     </div>
                 </div>
             </div>
@@ -297,8 +296,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/LeetCode/" target="_blank">
-                                <span class="chip bg-color">LeetCode</span>
+                            <a href="/tags/vscode/" target="_blank">
+                                <span class="chip bg-color">vscode</span>
+                            </a>
+                        
+                            <a href="/tags/快捷键/" target="_blank">
+                                <span class="chip bg-color">快捷键</span>
                             </a>
                         
                     </div>
@@ -309,8 +312,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/LeetCode/" class="post-category" target="_blank">
-                                LeetCode
+                            <a href="/categories/vscode/" class="post-category" target="_blank">
+                                vscode
                             </a>
                         
                     </div>
@@ -321,14 +324,14 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-05-01
+                    2018-06-01
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        292
+                        297
                     </div>
                     
 
@@ -346,48 +349,10 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="题目内容"><a href="#题目内容" class="headerlink" title="题目内容"></a>题目内容</h3><p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。<br>你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。<br>示例:</p>
-<p>给定 nums = [2, 7, 11, 15], target = 9<br>因为 nums[0] + nums[1] = 2 + 7 = 9<br>所以返回 [0, 1]</p>
-<h3 id="解题-1-双for循环"><a href="#解题-1-双for循环" class="headerlink" title="解题 1 - 双for循环"></a>解题 1 - 双for循环</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> twoSum <span class="token operator">=</span> <span class="token punctuation">(</span>nums <span class="token punctuation">,</span> target<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span> <span class="token punctuation">;</span> j <span class="token operator">&lt;</span>nums<span class="token punctuation">.</span>length <span class="token punctuation">;</span> j <span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">===</span> target<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token punctuation">[</span>i<span class="token punctuation">,</span>j<span class="token punctuation">]</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token function">twoSum</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">90</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// [2,3]</span></code></pre>
-<p>思路 : 循环比较<br>1 =&gt; 7 , 10 , 90<br>7 =&gt; 10 , 90<br>10 =&gt; 90 </p>
-<h3 id="解题-2-对象或Map"><a href="#解题-2-对象或Map" class="headerlink" title="解题 2 - 对象或Map"></a>解题 2 - 对象或Map</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> twoSum <span class="token operator">=</span> <span class="token punctuation">(</span>nums<span class="token punctuation">,</span>target<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">;</span> 
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token punctuation">[</span>map<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">,</span> i<span class="token punctuation">]</span>
-        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-            map<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>target <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token punctuation">,</span> i<span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">let</span> twoSum <span class="token operator">=</span> <span class="token punctuation">(</span>nums<span class="token punctuation">,</span>target<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-    <span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> <span class="token punctuation">;</span> 
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 1 </span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>obj<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token punctuation">[</span>obj<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">,</span> i<span class="token punctuation">]</span> <span class="token punctuation">;</span>  
-        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            obj<span class="token punctuation">[</span>target <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> i <span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// {16 : 0 , 15 : 1 , 14 : 2 , 13 : 3 ....  , 10 : 6 , 9 : 7 }</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="解题-3-indexOf"><a href="#解题-3-indexOf" class="headerlink" title="解题 3 - indexOf"></a>解题 3 - indexOf</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> twoSum <span class="token operator">=</span> <span class="token punctuation">(</span>nums <span class="token punctuation">,</span> target<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">;</span> 
-    nums<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">,</span>index<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>target <span class="token operator">-</span> item<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>target<span class="token operator">-</span> item<span class="token punctuation">)</span> <span class="token operator">!==</span> index<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            result <span class="token operator">=</span> <span class="token punctuation">[</span>index<span class="token punctuation">,</span> nums<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>target <span class="token operator">-</span> item<span class="token punctuation">)</span><span class="token punctuation">]</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> result <span class="token punctuation">;</span> 
-<span class="token punctuation">}</span></code></pre>
+                <h3 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h3><p>Ctrl + X : 剪切选中的内容，如果没有选中内容，剪切光标所在整行内容<br>Ctrl + C : 复制选中的内容，如果没有选中内容，复制光标所在整行内容<br>Alt + 下/上 : 移动行<br>shift + Alt + 上/下 : 复制行<br>Ctrl+Shift+K : 删除行<br>Ctrl + / : 行注释<br>Ctrl + W + F4 : 关闭当前tab<br>Ctrl + 1/2/3… : 跳到指定tab<br>Ctrl+Shift+T : 重新打开上一次关闭的tab</p>
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><p>Ctrl + F : 搜索<br>Ctrl + H : 替换<br>Ctrl + P : 搜索文件<br>Ctrl + G :  跳转行<br>Ctrl + Shift + Tab : 切换tab页<br>Ctrl + Shift + M : 显示终端、错误等程序面板<br>Alt + 左/右 : 左右切换tab页<br>Alt + Enter : 选中所有匹配搜索的</p>
+<h3 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h3><p>Ctrl + N : 新建文件<br>Ctrl + O : 打开文件<br>Ctrl + S : 保存<br>Ctrl+Shift+S : 另存为<br>Ctrl+K -&gt; S : 保存所有<br>Ctrl + K -&gt; P : 复制文件路径<br>Ctrl + K -&gt; R : 在资源管理器中打开文件<br>Ctrl + K -&gt; O : 在新窗口打开文件</p>
+<h3 id="显示"><a href="#显示" class="headerlink" title="显示"></a>显示</h3><p>F11 : 全屏<br>Ctrl+ =/- : 放大或缩小<br>Ctrl+B : 开关侧边栏<br>Ctrl+Shift+E : 焦点放到Explorer<br>Ctrl+Shift+F : 焦点放到搜索,改成ctrl+alt+f<br>Ctrl+Shift+G : 焦点放Git<br>Ctrl+Shift+D : 焦点放到Debug<br>Ctrl+Shift+X : 焦点放到扩展</p>
 
             </div>
             <hr/>
@@ -546,9 +511,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《001 - 两数之和》
+                    《vscode常用快捷键总结》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/05/01/twoSum/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/06/01/quickKey/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Jia
             </a> 采用
@@ -588,9 +553,64 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2018/06/01/quickKey/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="vscode常用快捷键总结">
+                        
+                        <span class="card-title">vscode常用快捷键总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            编辑Ctrl + X : 剪切选中的内容，如果没有选中内容，剪切光标所在整行内容Ctrl + C : 复制选中的内容，如果没有选中内容，复制光标所在整行内容Alt + 下/上 : 移动行shift + Alt + 上/下 : 复制行Ctrl
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-06-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/vscode/" class="post-category" target="_blank">
+                                    vscode
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/vscode/" target="_blank">
+                        <span class="chip bg-color">vscode</span>
+                    </a>
+                    
+                    <a href="/tags/快捷键/" target="_blank">
+                        <span class="chip bg-color">快捷键</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2018/05/11/eventloop/">
                     <div class="card-image">
@@ -608,9 +628,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -632,55 +652,6 @@
                     
                     <a href="/tags/event-loop/" target="_blank">
                         <span class="chip bg-color">event loop</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2018/04/29/git/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="git常用命令总结">
-                        
-                        <span class="card-title">git常用命令总结</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            方便以后学习，工作时候查阅
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-29
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/git/" class="post-category" target="_blank">
-                                    git
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/git/" target="_blank">
-                        <span class="chip bg-color">git</span>
                     </a>
                     
                 </div>
