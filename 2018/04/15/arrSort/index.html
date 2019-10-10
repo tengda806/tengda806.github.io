@@ -384,15 +384,15 @@
         <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> obj<span class="token punctuation">[</span>item<span class="token punctuation">]</span> <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token comment" spellcheck="true">//=>当前迭代的这一项在数组中已经存在，我们把这一项在数组中干掉</span>
             <span class="token comment" spellcheck="true">// _this.splice(i, 1); [后面项移位，消耗性能]</span>
-            _this<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> _this<span class="token punctuation">[</span>_this<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            _this<span class="token punctuation">.</span>length<span class="token operator">--</span><span class="token punctuation">;</span>
-            i<span class="token operator">--</span><span class="token punctuation">;</span>
-            <span class="token keyword">continue</span><span class="token punctuation">;</span>
+            _this<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> _this<span class="token punctuation">[</span>_this<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token punctuation">;</span> 
+            _this<span class="token punctuation">.</span>length<span class="token operator">--</span> <span class="token punctuation">;</span> 
+            i<span class="token operator">--</span> <span class="token punctuation">;</span> 
+            <span class="token keyword">continue</span> <span class="token punctuation">;</span> 
         <span class="token punctuation">}</span>
-        obj<span class="token punctuation">[</span>item<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        obj<span class="token punctuation">[</span>item<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span> <span class="token punctuation">;</span> 
     <span class="token punctuation">}</span>
-    obj <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> _this<span class="token punctuation">;</span>
+    obj <span class="token operator">=</span> <span class="token keyword">null</span> <span class="token punctuation">;</span> 
+    <span class="token keyword">return</span> _this <span class="token punctuation">;</span> 
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <p><code>indexOf：获取当前项在数组中第一次出现位置的索引，也能判断是否存在这一项（不存在获取的索引是-1），这个方法是不兼容IE6~8的</code></p>
 <pre class=" language-javascript"><code class="language-javascript">Array<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>myUnique <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -929,7 +929,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
         <div class="col s12 m8 l8 copy-right">
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">18.3k</span>
+                <span class="white-color">20.6k</span>
             
 
             
