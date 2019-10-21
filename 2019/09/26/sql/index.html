@@ -899,7 +899,7 @@ SELECT * FROM stu LIMIT 3,3; -- 第二页
         - 查询的是左表所有数据以及交集部分
     - 右外连接
         - 语法: select 字段列表 from 表1 right [outer] join 表2 on 条件;
-        - 查询的是右表所有数据以及交集部分(满足w&#39;h&#39;r)
+        - 查询的是右表所有数据以及交集部分(满足where)
 ```sql
 -- 查询所有员工信息，部门有则查，无则不显示
 SELECT t1.*,t2.name FROM emp t1 LEFT JOIN dept t2 ON t1.dept_id = t2.id;</code></pre><ul>
