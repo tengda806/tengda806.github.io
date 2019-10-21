@@ -406,7 +406,7 @@ exit</code></pre><h3 id="mysql-的目录结构"><a href="#mysql-的目录结构"
 <li>SQL语法可以以单行或者多行书写，以分号结尾。</li>
 <li>空格、缩进来强化可读性</li>
 <li>SQL不区分大小写，关键字建议大写</li>
-<li>3中注释<ul>
+<li>3种注释<ul>
 <li>单行注释 – 注释内容  或者 # 注释内容</li>
 <li>多行注释 /* 注释内容 */</li>
 </ul>
@@ -574,7 +574,7 @@ exit</code></pre><h3 id="mysql-的目录结构"><a href="#mysql-的目录结构"
 <li>如果查询所有字段可以使用 * 来替代字段的列表</li>
 </ul>
 </li>
-<li>去出重复<ul>
+<li>去除重复<ul>
 <li>DISTINCT关键字</li>
 </ul>
 </li>
@@ -647,73 +647,98 @@ exit</code></pre><h3 id="mysql-的目录结构"><a href="#mysql-的目录结构"
 </ul>
 </li>
 <li><ul>
-<li>查询姓名中包含马的人<br>SELECT * FROM stu WHERE name LIKE ‘%马%’;</li>
+<li>查询姓名中包含马的人<br>SELECT * FROM stu WHERE name LIKE ‘%马%’;<pre><code></code></pre></li>
 </ul>
 </li>
 </ul>
 </blockquote>
-<pre><code>
-&gt; 高级查询
+<blockquote>
+<p>高级查询</p>
+</blockquote>
+<ul>
+<li><p>排序查询</p>
+<ul>
+<li>order by 字句<ul>
+<li>order by 排序字段1 排序方式1,….</li>
+</ul>
+</li>
+<li>排序方式<ul>
+<li>ASC : 升序，默认的</li>
+<li>DESC : 降序</li>
+</ul>
+</li>
+<li>如果有多个排序条件，则当前面的条件值一样时，才会判断后面条件</li>
+</ul>
+</li>
+<li><p>聚合函数: 将一列数据作为一个整体，进行纵向计算</p>
+<ul>
+<li>count : 计算个数<ul>
+<li>一般选择非空的列，主键</li>
+</ul>
+</li>
+<li>max : 计算最大值</li>
+<li>min : 计算最小值</li>
+<li>sum : 计算和</li>
+<li>avg : 计算平均值</li>
+<li>注意: 聚合函数的计算会排除null值<ul>
+<li>解决方案: <ul>
+<li>选择不包含null的列计算</li>
+<li>IFNULL函数</li>
+<li>SELECT COUNT (*) FROM stu;(不推荐)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>分组查询</p>
+<ul>
+<li>语法: group by 分组字段;</li>
+<li>注意:<ul>
+<li>分组之后查询的字段: 分组字段、聚合函数</li>
+<li>WHERE和HAVING的区别<ul>
+<li>where在分组之前进行限定，如果不满足条件则不参与分组，having在分组之后进行限定，如果不满足条件则不会被查询出来</li>
+<li>whrer后不可以跟聚合函数判断，having可以</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>分页查询</p>
+<ul>
+<li>语法: limit 开始索引,每页查询的条数;</li>
+<li>公式: 开始的索引 = (当前的页码 - 1) * 每页显示的条数</li>
+<li>LIMIT分页操作是一个mysql<code>方言</code></li>
+</ul>
+</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 升序方式排列 默认升序</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> stu <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> math<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">-- 降序</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> stu <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> math <span class="token keyword">DESC</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">-- 按照数学成绩排序，如果一样，则按照英语成绩排序</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> stu <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> math <span class="token keyword">ASC</span> <span class="token punctuation">,</span> english <span class="token keyword">ASC</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">-- 查看学生人数,如果是null给其设置为0</span>
+<span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>IFNULL<span class="token punctuation">(</span>name<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">from</span> stu<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">-- 数学最大成绩 MIN 则是最小值</span>
+<span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>math<span class="token punctuation">)</span> <span class="token keyword">from</span> stu<span class="token punctuation">;</span> 
+<span class="token comment" spellcheck="true">-- 求和 ， 会排除null值进行计算 AVG则为平均分</span>
+<span class="token keyword">SELECT</span> <span class="token function">SUM</span><span class="token punctuation">(</span>math<span class="token punctuation">)</span> <span class="token keyword">from</span> stu<span class="token punctuation">;</span> 
+<span class="token comment" spellcheck="true">-- 按照性别分组，分别查询男，女同学的平均分和人数</span>
+<span class="token keyword">SELECT</span> sex <span class="token punctuation">,</span> <span class="token function">AVG</span><span class="token punctuation">(</span>math<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">from</span> stu <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> sex<span class="token punctuation">;</span> 
+<span class="token comment" spellcheck="true">-- 按照性别分组，分别查询男，女同学的平均分和人数，分数低于70分的人不参与分组</span>
+<span class="token keyword">SELECT</span> sex <span class="token punctuation">,</span> <span class="token function">AVG</span><span class="token punctuation">(</span>math<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">from</span> stu <span class="token keyword">WHERE</span> math <span class="token operator">></span> <span class="token number">70</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> sex<span class="token punctuation">;</span> 
+<span class="token comment" spellcheck="true">-- 按照性别分组，分别查询男，女同学的平均分和人数，分数低于70分的人不参与分组,分完组之后人数要大于两个人(对分完组的数据在进行限定)</span>
+<span class="token keyword">SELECT</span> sex <span class="token punctuation">,</span> <span class="token function">AVG</span><span class="token punctuation">(</span>math<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">from</span> stu <span class="token keyword">WHERE</span> math <span class="token operator">></span> <span class="token number">70</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> sex <span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">2</span><span class="token punctuation">;</span> 
 
-- 排序查询
-    - order by 字句
-        - order by 排序字段1 排序方式1,....
-    - 排序方式
-        - ASC : 升序，默认的
-        - DESC : 降序
-    - 如果有多个排序条件，则当前面的条件值一样时，才会判断后面条件
-- 聚合函数: 将一列数据作为一个整体，进行纵向计算
-    - count : 计算个数
-        - 一般选择非空的列，主键
-    - max : 计算最大值
-    - min : 计算最小值
-    - sum : 计算和
-    - avg : 计算平均值
-    - 注意: 聚合函数的计算会排除null值
-        - 解决方案: 
-            + 选择不包含null的列计算
-            + IFNULL函数
-            + SELECT COUNT (*) FROM stu;(不推荐)
+<span class="token comment" spellcheck="true">-- 每页显示三条数据</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> stu <span class="token keyword">LIMIT</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">-- 第一页</span>
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> stu <span class="token keyword">LIMIT</span> <span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">-- 第二页</span>
+<span class="token comment" spellcheck="true">-- 公式: 开始的索引 = (当前的页码 - 1) * 每页显示的条数</span>
 
-- 分组查询
-    - 语法: group by 分组字段;
-    - 注意:
-        - 分组之后查询的字段: 分组字段、聚合函数
-        - WHERE和HAVING的区别
-            - where在分组之前进行限定，如果不满足条件则不参与分组，having在分组之后进行限定，如果不满足条件则不会被查询出来
-            - whrer后不可以跟聚合函数判断，having可以
-
-- 分页查询
-    - 语法: limit 开始索引,每页查询的条数;
-    - 公式: 开始的索引 = (当前的页码 - 1) * 每页显示的条数
-    - LIMIT分页操作是一个mysql`方言`
-
-```sql
--- 升序方式排列 默认升序
-SELECT * FROM stu ORDER BY math;
--- 降序
-SELECT * FROM stu ORDER BY math DESC;
--- 按照数学成绩排序，如果一样，则按照英语成绩排序
-SELECT * FROM stu ORDER BY math ASC , english ASC;
--- 查看学生人数,如果是null给其设置为0
-SELECT COUNT(IFNULL(name,0)) from stu;
--- 数学最大成绩 MIN 则是最小值
-SELECT MAX(math) from stu; 
--- 求和 ， 会排除null值进行计算 AVG则为平均分
-SELECT SUM(math) from stu; 
--- 按照性别分组，分别查询男，女同学的平均分和人数
-SELECT sex , AVG(math),COUNT(id) from stu GROUP BY sex; 
--- 按照性别分组，分别查询男，女同学的平均分和人数，分数低于70分的人不参与分组
-SELECT sex , AVG(math),COUNT(id) from stu WHERE math &gt; 70 GROUP BY sex; 
--- 按照性别分组，分别查询男，女同学的平均分和人数，分数低于70分的人不参与分组,分完组之后人数要大于两个人(对分完组的数据在进行限定)
-SELECT sex , AVG(math),COUNT(id) from stu WHERE math &gt; 70 GROUP BY sex HAVING COUNT(id) &gt; 2; 
-
--- 每页显示三条数据
-SELECT * FROM stu LIMIT 0,3; -- 第一页
-SELECT * FROM stu LIMIT 3,3; -- 第二页
--- 公式: 开始的索引 = (当前的页码 - 1) * 每页显示的条数
-
-</code></pre><h3 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h3><blockquote>
+</code></pre>
+<h3 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h3><blockquote>
 <p>对表中的数据进行限定，保证数据的正确性、有效性和完整性</p>
 <ul>
 <li>分类<ul>
@@ -891,18 +916,32 @@ SELECT * FROM stu LIMIT 3,3; -- 第二页
 <li>查询员工表名称、性别、部门名称<br>SELECT emp.name , emp.gender, dept.name  FROM emp , dept WHERE emp.dept_id = dept.id;</li>
 </ul>
 </li>
+<li><ul>
+<li>显示内连接<br>SELECT * FROM emp INNER JOIN  dept ON emp.dept_id = dept.id;<br>SELECT * FROM emp JOIN  dept ON emp.dept_id = dept.id; – inner可不写<pre><code>
+
+
+</code></pre></li>
 </ul>
-<p>– 显示内连接<br>SELECT * FROM emp INNER JOIN  dept ON emp.dept_id = dept.id;<br>SELECT * FROM emp JOIN  dept ON emp.dept_id = dept.id; – inner可不写</p>
-<pre><code>- 2.外连接查询:
-    - 左外连接
-        - 语法: select 字段列表 from 表1 left [outer] join 表2 on 条件;
-        - 查询的是左表所有数据以及交集部分
-    - 右外连接
-        - 语法: select 字段列表 from 表1 right [outer] join 表2 on 条件;
-        - 查询的是右表所有数据以及交集部分(满足where)
-```sql
--- 查询所有员工信息，部门有则查，无则不显示
-SELECT t1.*,t2.name FROM emp t1 LEFT JOIN dept t2 ON t1.dept_id = t2.id;</code></pre><ul>
+</li>
+</ul>
+<ul>
+<li>2.外连接查询:<ul>
+<li>左外连接<ul>
+<li>语法: select 字段列表 from 表1 left [outer] join 表2 on 条件;</li>
+<li>查询的是左表所有数据以及交集部分</li>
+</ul>
+</li>
+<li>右外连接<ul>
+<li>语法: select 字段列表 from 表1 right [outer] join 表2 on 条件;</li>
+<li>查询的是右表所有数据以及交集部分(满足where)<br>```sql</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li>查询所有员工信息，部门有则查，无则不显示<br>SELECT t1.*,t2.name FROM emp t1 LEFT JOIN dept t2 ON t1.dept_id = t2.id;<br>```</li>
+</ul>
+</li>
 <li>3.子查询:</li>
 </ul>
 <h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><h3 id="DCL"><a href="#DCL" class="headerlink" title="DCL"></a>DCL</h3>
