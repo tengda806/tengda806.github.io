@@ -341,14 +341,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.5k
+                        1.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        6 分
+                        5 分
                     </div>
                     
                 
@@ -528,63 +528,6 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="JSP-简单入门"><a href="#JSP-简单入门" class="headerlink" title="JSP 简单入门"></a>JSP 简单入门</h3><blockquote>
-<p>1.概念 : Java Server Page : java服务器端页面</p>
-</blockquote>
-<ul>
-<li>可以理解为 : 一个特殊的页面，既可以写html标签，也可以定义Java代码</li>
-<li>用于简化书写</li>
-</ul>
-<blockquote>
-<p>2.原理 : </p>
-</blockquote>
-<ul>
-<li>jsp本质上就是一个Servlet ， extends HttpJspBase extends HttpServlet</li>
-</ul>
-<blockquote>
-<p>3.jsp的脚本</p>
-</blockquote>
-<ul>
-<li>1、&lt;% Java代码 %&gt; ：定义的java代码，在service方法中。service中可以定义什么，该脚本中就可以定义什么</li>
-<li>2、&lt;%! Java代码 %&gt; : 定义的java代码，在jsp转换后的java类的成员位置。</li>
-<li>3、&lt;%= Java代码 %&gt; : 定义的java代码，会输出到页面上，输出语句中定义什么，该脚本被就可以写什么</li>
-</ul>
-<blockquote>
-<p>4.jsp的内置对象</p>
-</blockquote>
-<ul>
-<li>内置对象 : 在jsp页面中不需要获取和创建，可以直接使用的对象</li>
-<li>一共有9个内置对象。<ul>
-<li>request</li>
-<li>response</li>
-<li>out : 可以将数据输出到页面上(字符输出流对象)。和response.getWriter()类似<ul>
-<li>response.getWriter()和out的区别<ul>
-<li>在tomcat服务器真正给客户端做出相应之前，会先找response缓冲区数据，再找out缓冲区数据，response.getWriter()数据输出永远在out之前</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<pre class=" language-java"><code class="language-java"><span class="token operator">&lt;</span><span class="token operator">%</span>@ page contentType<span class="token operator">=</span><span class="token string">"text/html;charset=UTF-8"</span> language<span class="token operator">=</span><span class="token string">"java"</span> <span class="token operator">%</span><span class="token operator">></span>
-<span class="token operator">&lt;</span>html<span class="token operator">></span>
-  <span class="token operator">&lt;</span>head<span class="token operator">></span>
-    <span class="token operator">&lt;</span>title<span class="token operator">></span>$Title$<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">></span>
-  <span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">></span>
-  <span class="token operator">&lt;</span>body<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">%</span>
-      System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"hello jsp"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      String contextPath <span class="token operator">=</span> request<span class="token punctuation">.</span><span class="token function">getContextPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>contextPath<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token operator">%</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">!</span>
-      <span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">3</span> <span class="token punctuation">;</span>
-    <span class="token operator">%</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">%=</span> <span class="token string">"hello"</span> <span class="token operator">%</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>h1<span class="token operator">></span>hi jsp<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
-  <span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">></span></code></pre>
 <h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><blockquote>
 <p>概念 : 服务器端会话技术，再一次会话的多次请求间共享数据，将数据保存在服务器端的对象中。HttpSession</p>
 </blockquote>
@@ -1024,7 +967,7 @@
         <div class="col s12 m8 l8 copy-right">
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">33.9k</span>
+                <span class="white-color">33.6k</span>
             
 
             
